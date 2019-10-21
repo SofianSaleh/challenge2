@@ -44,15 +44,34 @@ Create two computers object from your factory function and save them in one arra
 
 Note: please write one or two lines here describing your solution.
 */
+// we write a function that accepts som things about computers and puts them in an object.
+// in the displayComputer function we use the return function to print the computer specs.
 
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+
+  var computer = {
+
+  	type: type,
+  	color:color,
+  	weight:weight
+
+  }
+
+  return computer;
+
 }
+
+var computer1 = makeComputer('Apple','white',25);
+var computer2 = makeComputer('Sony','black',22);
+var computer3 = makeComputer('Toshiba','blue',30);
+var Computers = [computer1, computer2, computer3];
 
 // Write a function displayComputer that can be used to display one computer.
 
 function displayComputer(computer) {
-  // TODO: Your code here
+
+  return 'Type: '  + ' ' + computer.type +' '+ 'Color: ' + computer.color + ' ' + 'weight: ' + computer.weight;
+
 }
 
 //=============================================================================
@@ -71,9 +90,16 @@ Note: please write one or two lines here describing your solution.
 var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
+// We use the map function to iterate and return a new array with all strings in uppercase format.
 
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+
+	return map(arrayOfStrings, function(str,i) {
+
+		return str.toUpperCase();
+
+	});
+  
 }
 
 //=============================================================================
@@ -91,6 +117,8 @@ Note: please write one or two lines here describing your solution.
 
 Here’s the data you’ll work with:
 */
+// we create a new array that will hold the countries that has more than 500m in population and then use the each
+//function to iterater aand then we push into the new array the result.
 
 var data = [
   {
@@ -112,7 +140,19 @@ var data = [
 ];
 
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+	var newArr = []
+
+   	each (arrayOfObjects,function(arr, i) {
+
+  	 if(arr.population >= 500000000) {
+
+  	 	newArr.push(arr);
+
+  	 }
+  	 	
+  });
+
+   	return newArr
 }
 
 //=============================================================================
@@ -130,9 +170,14 @@ halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 
 Note: please write one or two lines here describing your solution.
 */
+// we use the map function to iterate over the array and halve them and put them into a new array.
 
 function halveAll(numbers) {
-  // your code is here
+
+  return map(numbers, function(number, i) {
+  	 return (number / 2);
+  
+  });
 }
 
 //=============================================================================
@@ -147,8 +192,20 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+// we us the each function to iterate over an object and then we create a new array to push the values of the object
+// into the new array
 function values(obj) {
-  // TODO: your code here
+
+  var newArr = [];
+  
+  each(obj, function(object, key) {
+  	
+  	newArr.push(object);
+
+  });
+
+  return newArr;
+
 }
 
 //Good Luck :))
